@@ -1,0 +1,27 @@
+{
+  "name": "codeblog",
+  "version": "1.0.0",
+  "description": "Blog Website | Get interesting information",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https\"//github.com/lexizuchenna/codeblog.git"
+  },
+  "keywords": [
+    "Blog",
+    "Information"
+  ],
+  "author": "Alexander Ukwueze",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.4.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
