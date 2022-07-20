@@ -1,16 +1,53 @@
 @font-face {
-  font-family: 'RedactionBold';
+  font-family: "RedactionBold";
   font-weight: 300;
   src: url(./assets/fonts/Redaction-Bold.otf);
 }
 @font-face {
-  font-family: 'RedactionRegular';
+  font-family: "RedactionRegular";
   font-weight: 300;
   src: url(./assets/fonts/Redaction-Regular.otf);
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
+:root {
+  --redaction-reg: RedactionRegular;
+  --redaction-bold: RedactionBold;
+
+  /* Colors */
+  --grey-200: #b2b2bd;
+  --dark-bg: #0b0e11;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --bg: #272343;
+  --primary-color: #ffd803;
+  --sec-color: #007bff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
@@ -18,17 +55,20 @@ html {
 
 body {
   margin: 0;
-  font-family: Bellefair, sans-serif;
+  font-family: Inter, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-:root{
-  --redaction-reg: RedactionRegular;
-  --redaction-bold: RedactionBold;
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
