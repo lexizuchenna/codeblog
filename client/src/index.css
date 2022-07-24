@@ -17,6 +17,7 @@
 
   /* Colors */
   --grey-200: #b2b2bd;
+  --grey-100: #ecebf3;
   --dark-bg: #0b0e11;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -47,6 +48,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  accent-color: var(--dark-bg);
 }
 
 html {

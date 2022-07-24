@@ -6,7 +6,9 @@ function Header() {
     <div className="container">
         <header className='flex'>
             <div className="logo">
-                <span className="icon">C</span> CODEBLOG
+                 <a href="">
+                 <h1><span className="icon">C</span> CODEBLOG</h1>
+                 </a>
             </div>
             <div className="social-head">
                 <ul>
