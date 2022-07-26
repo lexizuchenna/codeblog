@@ -37,7 +37,7 @@ function Navbar() {
         <div className="menu-item-sm" onClick={handleOpenMenu}>
           {<FiMenu />}
         </div>
-        <div className={!open ? "close" : "menu open"}>
+        <div className={!open ? "none close" : "menu open"}>
           <div onClick={handleCloseMenu}>{<AiOutlineClose />}</div>
           <ul>
             <li>

@@ -15,7 +15,7 @@ header {
   border-bottom: 1px solid var(--grey-200);
 }
 
-.menu, .menu-item-sm svg {
+.menu, .menu-item-sm svg,.none {
   display: none;
 }
 

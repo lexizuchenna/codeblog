@@ -42,7 +42,7 @@ function Footer() {
                   <input type="email" placeholder="Enter your email..."/>
                   <button>Subscribe</button>
               </div>
-              <div className="terms"><input type="checkbox" name="" id="" /><span>By subscribing you agree to our <a href="">Terms & Conditions</a></span></div>
+              <div className="terms"><span>By subscribing you agree to our <a href="">Terms & Conditions</a></span></div>
           </div>
         </div>
       </footer>
