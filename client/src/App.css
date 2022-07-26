@@ -15,6 +15,10 @@ header {
   border-bottom: 1px solid var(--grey-200);
 }
 
+.menu, .menu-item-sm svg {
+  display: none;
+}
+
 .logo {
   font-size: 1rem;
   font-weight: 500;
@@ -97,10 +101,6 @@ main {
   grid-auto-flow: row;
   grid-area: 1 / 2 / 2 / 3;
 }
-
-/* .right-side .image-box {
-  max-height: 100px;
-} */
 
 .left-side {
   display: grid;
@@ -243,7 +243,7 @@ footer a {
 .subscribe .input-group {
   background-color: var(--grey-100);
   border-radius: 10px;
-  width: 320px;
+  max-width: 320px;
   
 }
 
@@ -266,6 +266,7 @@ footer a {
   padding: 10px;
   border-radius: 10px;
   font-family: var(--redaction-bold);
+  cursor: pointer;
 }
 
 .subscribe .terms {

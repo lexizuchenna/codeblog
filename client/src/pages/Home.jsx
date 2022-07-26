@@ -142,7 +142,7 @@ function Home() {
             <div class="left-pol">
             <SmallPost
               imgSource={images.image10}
-              category={"Art"}
+              category={"Politics"}
               createdAt={"March, 2019"}
               link={"/"}
               linkText={
@@ -152,7 +152,7 @@ function Home() {
             />
             <SmallPost
               imgSource={images.image7}
-              category={"Health"}
+              category={"Politics"}
               createdAt={"March, 2018"}
               link={"/"}
               linkText={"Childhood survivors and later health researches"}
