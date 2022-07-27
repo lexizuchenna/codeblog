@@ -24,13 +24,13 @@ function Navbar() {
             </a>
           </li>
           <li>
-            <a href="/about" className="inactive">
+            <a href="/business" className="inactive">
               Business
             </a>
           </li>
           <li>
-            <a href="/about" className="inactive">
-              Featured
+            <a href="/politics" className="inactive">
+              Politics
             </a>
           </li>
         </ul>
