@@ -15,7 +15,9 @@ header {
   border-bottom: 1px solid var(--grey-200);
 }
 
-.menu, .menu-item-sm svg,.none {
+.menu,
+.menu-item-sm svg,
+.none {
   display: none;
 }
 
@@ -128,7 +130,8 @@ main {
 }
 
 /* Health */
-.health, .politics {
+.health,
+.politics {
   margin-top: 20px;
 }
 
@@ -244,7 +247,6 @@ footer a {
   background-color: var(--grey-100);
   border-radius: 10px;
   max-width: 320px;
-  
 }
 
 .subscribe input {
@@ -302,16 +304,19 @@ img {
   border-radius: 7px;
 }
 
-.category,
-.date {
-  z-index: 5;
-  color: var(--white);
+.image-items {
   position: absolute;
   bottom: 10px;
-  left: 10px;
+  z-index: 5;
+}
+
+.category,
+.date {
+  color: var(--white);
   font-size: 15px;
   font-weight: 500;
   font-family: Inter;
+  margin-left: 15px;
 }
 
 .category {
@@ -322,13 +327,16 @@ img {
 }
 
 .date {
-  left: calc(95px);
-  bottom: 14px;
+  background-color: var(--dark-bg);
+  border-radius: 5px;
+  color: var(--white);
+  padding: 5px 10px;
 }
 
 .large-post a,
 .small-post a,
-.inline-post a {
+.inline-post a,
+.logo a {
   color: var(--dark-bg);
 }
 

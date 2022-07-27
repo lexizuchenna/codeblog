@@ -5,10 +5,12 @@ function SmallPost({ imgSource, category, createdAt, link, author, linkText }) {
         <figure>
           <img src={imgSource} alt="" />
         </figure>
-        <data role="category" className="category">
-          {category}
-        </data>
-        <data className="date">{createdAt}</data>
+        <div className="image-items">
+          <data role="category" className="category">
+            {category}
+          </data>
+          <data className="date">{createdAt}</data>
+        </div>
       </div>
       <h2>
         <a href={link}>{linkText}</a>
