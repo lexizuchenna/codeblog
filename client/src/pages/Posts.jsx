@@ -1,8 +1,11 @@
+import Post from "../components/Posts/Post"
 
 
 function Posts() {
   return (
-    <div>Posts</div>
+    <div>
+      <Post />
+    </div>
   )
 }
 

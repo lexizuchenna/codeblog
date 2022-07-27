@@ -6,8 +6,8 @@ import Posts from "./pages/Posts";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-import "./App.css";
-import "./MediaQuery.css";
+import "./css/App.css";
+import "./css/MediaQuery.css";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/posts" element={<Posts />} />
+          <Route path="/posts/democracy's-chief-executive" element={<Posts />} />
         </Routes>
       </Router>
       <Footer />

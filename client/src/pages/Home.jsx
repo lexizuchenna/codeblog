@@ -17,13 +17,13 @@ function Home() {
               imgSource={images.image4}
               category={"Design"}
               createdAt={"April, 2022"}
-              link={"/"}
+              link={"/posts/democracy's-chief-executive"}
               content={
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. lorem ipsum dolor sit amet consectetur adipisicing elit."
+                "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima saepe ratione architecto ipsum, incidunt vel eos quod nisi sint natus Lorem ipsum dolor sit amet."
               }
               author={"Michael Bryan"}
               linkText={
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. lorem ipsum dolor sit amet consectetur"
+                "Democracy’s chief executive: Interpreting the constitution and defining the future"
               }
             />
           </main>
