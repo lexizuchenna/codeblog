@@ -6,7 +6,7 @@ function Header() {
     <div className="container">
         <header className='flex'>
             <div className="logo">
-                 <a href="">
+                 <a href="/">
                  <h1><span className="icon">C</span> CODEBLOG</h1>
                  </a>
             </div>

@@ -1,8 +1,10 @@
+import Navbar from '../components/Navbar'
 import { images } from "../assets/index";
 
 function Contacts() {
   return (
     <>
+    <Navbar/>
       <div className="container">
         <div className="contact-flex">
           <div className="contact-details">
