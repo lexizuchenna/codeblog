@@ -28,7 +28,7 @@ function Footer() {
           <h4>Helpful Links</h4>
           <div className="link-item">
           <ul>
-              <li><a href="">Business</a></li>
+              <li><a href="/contact">Contact</a></li>
               <li><a href="">Politics</a></li>
               <li><a href="">Health</a></li>
               <li><a href="">Science</a></li>

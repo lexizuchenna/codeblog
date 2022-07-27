@@ -10,8 +10,10 @@ import image9 from "./classic.jpg";
 import image10 from "./4.jpg";
 import image11 from "./nbv.jpg";
 import image12 from "./item4.jpg";
+import contact from './contact.jpeg'
 
 export default {
+  contact,
   image1,
   image2,
   image3,
