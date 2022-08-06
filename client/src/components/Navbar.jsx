@@ -33,6 +33,16 @@ function Navbar() {
               Politics
             </a>
           </li>
+          <li>
+            <a href="/health" className="inactive">
+              Health
+            </a>
+          </li>
+          <li>
+            <a href="/science" className="inactive">
+              Science
+            </a>
+          </li>
         </ul>
         <div className="menu-item-sm" onClick={handleOpenMenu}>
           {<FiMenu />}
@@ -49,13 +59,23 @@ function Navbar() {
               </a>
             </li>
             <li>
-              <a href="/about" className="inactive">
+              <a href="/business" className="inactive">
                 Business
               </a>
             </li>
             <li>
-              <a href="/about" className="inactive">
-                Featured
+              <a href="/politics" className="inactive">
+                Politics
+              </a>
+            </li>
+            <li>
+              <a href="/health" className="inactive">
+                Health
+              </a>
+            </li>
+            <li>
+              <a href="/science" className="inactive">
+                Science
               </a>
             </li>
           </ul>

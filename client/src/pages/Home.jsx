@@ -1,12 +1,37 @@
-import React from "react";
+import {useEffect, useState} from "react";
+import  {useSelector, useDispatch} from 'react-redux'
+import moment from 'moment'
+import {getAllPosts, reset} from '../feautres/post/postSlice'
 
 import Navbar from "../components/Navbar";
 import LargePost from "../components/Posts/LargePost";
 import SmallPost from "../components/Posts/SmallPost";
 import InlinePost from "../components/Posts/InlinePost";
-import { images } from "../assets/index";
 
 function Home() {
+  const [postFeed, setPostFeed] = useState([])
+  const dispatch = useDispatch()
+  const {posts, isSuccess} = useSelector((state) => state.post)
+
+  useEffect(() => {
+    dispatch(getAllPosts())
+    return () => {
+      posts.map((post) => {
+        return setPostFeed(post)
+      })
+      reset()
+    }
+  }, [dispatch, posts])
+
+  const mainFeed = postFeed[0]
+  const imageFeed = postFeed.slice(2, 4)
+
+ let business = postFeed.filter((post) => post.category === 'Business')
+ let mainPolitics = postFeed.filter((post) => post.category === 'Politics')
+ let politics = mainPolitics.slice(1, 4)
+ let health = postFeed.filter((post) => post.category === 'Health')
+//  let science = postFeed.filter((post) => post.category === 'Science')
+  let largePol = mainPolitics.slice(4, 5)
   return (
     <>
       <Navbar />
@@ -14,184 +39,102 @@ function Home() {
         <div className="grid-container">
           <main className="main">
             <LargePost
-              imgSource={images.image4}
-              category={"Design"}
-              createdAt={"April, 2022"}
-              link={"/posts/democracy's-chief-executive"}
+              imgSource={mainFeed?.imageOne}
+              category={mainFeed?.category}
+              createdAt={"April, 2023"}
+              link={`/posts/${mainFeed?.linkText}`}
               content={
-                "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima saepe ratione architecto ipsum, incidunt vel eos quod nisi sint natus Lorem ipsum dolor sit amet."
+                mainFeed?.header
               }
-              author={"Michael Bryan"}
+              author={mainFeed?.author.toUpperCase()}
               linkText={
-                "Democracy’s chief executive: Interpreting the constitution and defining the future"
+                mainFeed?.title
               }
             />
           </main>
           <aside className="aside">
             <div className="left-side">
-              <SmallPost
-                imgSource={images.image1}
-                category={"Art"}
-                createdAt={"March, 2019"}
-                link={"/"}
-                linkText={
-                  "Why boxed water isnt the best solution they want you to think it is"
-                }
-                author={"Kris Media"}
-              />
-              <SmallPost
-                imgSource={images.image3}
-                category={"Music"}
+              {imageFeed.map((post) => (
+                <SmallPost
+                key={post._id}
+                imgSource={post.imageOne}
+                category={post.category}
                 createdAt={"Jan, 2019"}
-                link={"/"}
+                link={`/posts/${post.linkText}`}
                 linkText={
-                  "Best Way to make Money in 2022"
+                  post.title
                 }
-                author={"Alexander Ukwueze"}
+                author={post.author}
               />
+              ))}
             </div>
             <div className="right-side">
-              <h3>Business</h3>
-              <InlinePost
-                category={"Business"}
-                createdAt={"Feb, 1998"}
-                link={"/"}
+              <h3>Business</h3> 
+              {isSuccess && business.map((post, i) => (
+                <InlinePost key={post._id} category={post.category}
+                createdAt={post.createdAt}
+                link={`posts/${post.linkText}`}
                 linkText={
-                  "Uber and Lyft are finally available in all of New York State"
-                }
-              />
-              <InlinePost
-                category={"Business"}
-                createdAt={"Feb, 1998"}
-                link={"/"}
-                linkText={
-                  "Uber and Lyft are finally available in all of New York State"
-                }
-              />
-              <InlinePost
-                category={"Business"}
-                createdAt={"Feb, 1998"}
-                link={"/"}
-                linkText={
-                  "Uber and Lyft are finally available in all of New York State"
-                }
-              />
-              <InlinePost
-                category={"Business"}
-                createdAt={"Feb, 1998"}
-                link={"/"}
-                linkText={
-                  "Uber and Lyft are finally available in all of New York State"
-                }
-              />
-              <InlinePost
-                category={"Business"}
-                createdAt={"Feb, 1998"}
-                link={"/"}
-                linkText={
-                  "Uber and Lyft are finally available in all of New York State"
-                }
-              />
+                  post.title
+                }/>
+              ))} 
             </div>
+            {/* {isLoading && <div>Loading</div>}
+            {!isLoading && message ? <div>Error: {message}</div>: null}
+            {!isLoading && posts.length > 0 ? (
+              <ul>
+                {posts.map((post) => (
+                  <li key={post.id}>{post.name}</li>
+                ))}
+              </ul>
+            ): null} */}
           </aside>
         </div>
         <section className="health">
           <h3>Health</h3>
           <div className="health-grid">
-            <SmallPost
-              imgSource={images.image6}
-              category={"Health"}
-              createdAt={"March, 2019"}
-              link={"/"}
-              linkText={
-                "Why boxed water isnt the best solution they want you to think it is"
-              }
-              author={"Kris Media"}
+            {health.map((post) => (
+              <SmallPost
+              key={post._id}
+              imgSource={post.imageOne}
+              category={post.category}
+              createdAt={moment(post.createdAt).fromNow()}
+              link={`/posts/${post.linkText}`}
+              linkText={post.title}
+              author={post.author.toUpperCase()}
             />
-            <SmallPost
-              imgSource={images.image9}
-              category={"Health"}
-              createdAt={"March, 2018"}
-              link={"/"}
-              linkText={"Childhood survivors and later health researches"}
-              author={"Kris Media"}
-            />
-            <SmallPost
-              imgSource={images.image11}
-              category={"Health"}
-              createdAt={"March, 2019"}
-              link={"/"}
-              linkText={
-                "Why boxed water isnt the best solution they want you to think it is"
-              }
-              author={"Kris Media"}
-            />
-            <SmallPost
-              imgSource={images.image2}
-              category={"Health"}
-              createdAt={"March, 2018"}
-              link={"/"}
-              linkText={"Childhood survivors and later health researches"}
-              author={"Kris Media"}
-            />
+            ))}
           </div>
         </section>
         <section className="politics">
           <h3>Politics</h3>
-          <div class="politics-grid">
-            <div class="left-pol">
-            <SmallPost
-              imgSource={images.image10}
-              category={"Politics"}
-              createdAt={"March, 2019"}
-              link={"/"}
-              linkText={
-                "Why boxed water isnt the best solution they want you to think it is"
-              }
-              author={"Kris Media"}
+          <div className="politics-grid">
+            <div className="left-pol">
+            {politics.map((post) => (
+              <SmallPost
+              key={post._id}
+              imgSource={post.imageOne}
+              category={post.category}
+              createdAt={moment(post.createdAt).fromNow()}
+              link={`/posts/${post.linkText}`}
+              linkText={post.title}
+              author={post.author.toUpperCase()}
             />
-            <SmallPost
-              imgSource={images.image7}
-              category={"Politics"}
-              createdAt={"March, 2018"}
-              link={"/"}
-              linkText={"Childhood survivors and later health researches"}
-              author={"Kris Media"}
-            />
-            <SmallPost
-              imgSource={images.image8}
-              category={"Politics"}
-              createdAt={"March, 2019"}
-              link={"/"}
-              linkText={
-                "Why boxed water isnt the best solution they want you to think it is"
-              }
-              author={"Kris Media"}
-            />
-            <SmallPost
-              imgSource={images.image12}
-              category={"Politics"}
-              createdAt={"March, 2018"}
-              link={"/"}
-              linkText={"Childhood survivors and later health researches"}
-              author={"Kris Media"}
-            />
+            ))}
             </div>
-            <div class="right-pol">
-            <LargePost
-              imgSource={images.image5}
-              category={"Politics"}
-              createdAt={"April, 2022"}
-              link={"/"}
-              content={
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. lorem ipsum dolor sit amet consectetur adipisicing elit."
-              }
-              author={"Michael Bryan"}
-              linkText={
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. lorem ipsum dolor sit amet consectetur"
-              }
+            <div className="right-pol">
+            {largePol.map((post) => (
+              <LargePost
+              imgSource={post.imageOne}
+              category={post.category}
+              createdAt={moment(post.createdAt).fromNow()}
+              link={`/posts/${post.linkText}`}
+              content={post.header}
+              author={post.author}
+              linkText={post.title}
             />
-            </div>
+            ))}
+            </div> 
           </div>
         </section>
         <section className="advert">

@@ -1,8 +1,29 @@
+import {useEffect, useState} from "react";
+import  {useSelector, useDispatch} from 'react-redux'
+import moment from 'moment'
+import {getPostByCategory, reset} from '../feautres/post/postSlice'
+
+
 import SmallPost from "../components/Posts/SmallPost";
-import { images } from "../assets/index";
 import Navbar from "../components/Navbar";
 
 function Politics() {
+  const dispatch = useDispatch()
+  const {posts} = useSelector((state) => state.post)
+
+  const [Feed, setFeed] = useState([])
+
+  useEffect(() => {
+   dispatch(getPostByCategory('Politics'))
+   posts.map((post) => {
+     return setFeed(post)
+   })
+   console.log(posts)
+   return () => {
+     reset() 
+   }
+  }, [dispatch, posts])
+  
   return (
     <>
       <Navbar />
@@ -10,42 +31,18 @@ function Politics() {
         <section className="health">
           <h3>Politics</h3>
           <div className="health-grid">
-            <SmallPost
-              imgSource={images.image6}
-              category={"Politics"}
-              createdAt={"March, 2019"}
-              link={"/"}
-              linkText={
-                "Why boxed water isnt the best solution they want you to think it is"
+            {Feed.map((post) => (
+              <SmallPost
+              key={post._id}
+              imgSource={post.imageOne}
+              category={post.category}
+              createdAt={moment(post.createdAt).fromNow()}
+              link={`posts/${post.linkText}`}
+              linkText={post.title
               }
-              author={"Kris Media"}
+              author={post.author.toUpperCase()}
             />
-            <SmallPost
-              imgSource={images.image9}
-              category={"Politics"}
-              createdAt={"March, 2018"}
-              link={"/"}
-              linkText={"Childhood survivors and later health researches"}
-              author={"Kris Media"}
-            />
-            <SmallPost
-              imgSource={images.image11}
-              category={"Politics"}
-              createdAt={"March, 2019"}
-              link={"/"}
-              linkText={
-                "Why boxed water isnt the best solution they want you to think it is"
-              }
-              author={"Kris Media"}
-            />
-            <SmallPost
-              imgSource={images.image2}
-              category={"Politics"}
-              createdAt={"March, 2018"}
-              link={"/"}
-              linkText={"Childhood survivors and later health researches"}
-              author={"Kris Media"}
-            />
+            ))}
           </div>
         </section>
       </div>

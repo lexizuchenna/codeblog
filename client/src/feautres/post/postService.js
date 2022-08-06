@@ -1,0 +1,29 @@
+const axios = require("axios");
+
+const url = "http://localhost:2000";
+
+const getAllPosts = async () => {
+  const response = await axios.get(`${url}/api/posts`);
+  return response.data;
+};
+
+const getPostByCategory = async (category) => {
+  const response = await axios.get(
+    `${url}/api/posts/category?category=${category}`
+  );
+
+  return response.data;
+};
+
+const getSinglePost = async (linkText) => {
+  const response = await axios.get(`${url}/api/posts/${linkText}`);
+  return response.data;
+};
+
+const postService = {
+  getAllPosts,
+  getPostByCategory,
+  getSinglePost,
+};
+
+export default postService;

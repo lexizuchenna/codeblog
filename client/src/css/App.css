@@ -120,7 +120,7 @@ main {
   display: grid;
   grid-auto-rows: 1fr;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(5, 0.5fr);
+  grid-template-rows: repeat(6, 0.5fr);
   gap: 20px 0px;
   align-items: start;
   grid-area: 1 / 2 / 2 / 3;
@@ -137,12 +137,12 @@ main {
 
 .health-grid {
   display: grid;
-  grid-template-rows: 0.3fr;
+  grid-template-rows: 1fr;
   grid-template-columns: repeat(4, 1fr);
   gap: 0 25px;
   justify-content: center;
-  align-items: center;
-  justify-items: center;
+  align-items: start;
+  justify-items: start;
   align-content: center;
   border-bottom: 1px solid var(--grey-200);
   padding: 25px 0;
@@ -350,7 +350,11 @@ img {
 .large-post p {
   line-height: 1.7;
   margin: 8px 0;
-  color: var(--grey-200);
+  color: var(--text);
+}
+
+.small-post {
+  width: 306px;
 }
 
 .small-post img {

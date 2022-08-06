@@ -7,14 +7,14 @@ import {getPostByCategory, reset} from '../feautres/post/postSlice'
 import SmallPost from "../components/Posts/SmallPost";
 import Navbar from "../components/Navbar";
 
-function Business() {
-  const dispatch = useDispatch()
+function Health() {
+    const dispatch = useDispatch()
   const {posts} = useSelector((state) => state.post)
 
   const [Feed, setFeed] = useState([])
 
   useEffect(() => {
-   dispatch(getPostByCategory('Business'))
+   dispatch(getPostByCategory('Health'))
    posts.map((post) => {
      return setFeed(post)
    })
@@ -23,13 +23,12 @@ function Business() {
      reset() 
    }
   }, [dispatch, posts])
-
   return (
     <>
       <Navbar />
       <div className="container">
         <section className="health">
-          <h3>Business</h3>
+          <h3>Health</h3>
           <div className="health-grid">
             {Feed.map((post) => (
               <SmallPost
@@ -47,7 +46,7 @@ function Business() {
         </section>
       </div>
     </>
-  );
+  )
 }
 
-export default Business;
+export default Health
