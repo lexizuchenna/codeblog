@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const url = "http://localhost:2000";
+const url = "https://lexizcodeblog.herokuapp.com/";
 
 const getAllPosts = async () => {
   const response = await axios.get(`${url}/api/posts`);
