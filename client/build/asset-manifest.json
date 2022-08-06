@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.17e0bd00.css",
+    "main.js": "/static/js/main.aaaedb81.js",
+    "static/media/3.jpg": "/static/media/3.ffbf8b182edd7ac72344.jpg",
+    "static/media/1.jpg": "/static/media/1.f1c3c5f30662327c8195.jpg",
+    "static/media/nbv.jpg": "/static/media/nbv.b569ca546eb1eabb4744.jpg",
+    "static/media/classic.jpg": "/static/media/classic.9ac144c17c3684bbbb26.jpg",
+    "static/media/lens-wallpaper.jpg": "/static/media/lens-wallpaper.74d02d1f0265f5bd91d1.jpg",
+    "static/media/world-main.jpg": "/static/media/world-main.0decd726543dec85c062.jpg",
+    "static/media/pol-main.jpg": "/static/media/pol-main.0bd608e6e749ca6632cd.jpg",
+    "static/media/4.jpg": "/static/media/4.4646f4c45cbb4f885db0.jpg",
+    "static/media/ext2.jpg": "/static/media/ext2.c9e8154070b0a2cdbc4d.jpg",
+    "static/media/main.jpg": "/static/media/main.8a1e6d5ad410606e23af.jpg",
+    "static/media/contact.jpeg": "/static/media/contact.5dd0af408b18f7cb4b2a.jpeg",
+    "static/media/Redaction-Bold.otf": "/static/media/Redaction-Bold.d1a4a2145bb1c6930059.otf",
+    "static/media/Redaction-Regular.otf": "/static/media/Redaction-Regular.e91c172333d8e76abf04.otf",
+    "static/media/5.jpg": "/static/media/5.fd5ac6cf4209ed61e56e.jpg",
+    "static/media/item4.jpg": "/static/media/item4.60b07a6fafa4331efe84.jpg",
+    "index.html": "/index.html",
+    "main.17e0bd00.css.map": "/static/css/main.17e0bd00.css.map",
+    "main.aaaedb81.js.map": "/static/js/main.aaaedb81.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.17e0bd00.css",
+    "static/js/main.aaaedb81.js"
+  ]
+}
