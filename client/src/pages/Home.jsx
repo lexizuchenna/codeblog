@@ -21,7 +21,9 @@ function Home() {
       })
       reset()
     }
-  }, [dispatch, posts])
+  }, [])
+
+  console.log(posts)
 
   const mainFeed = postFeed[0]
   const imageFeed = postFeed.slice(2, 4)
@@ -93,17 +95,19 @@ function Home() {
         <section className="health">
           <h3>Health</h3>
           <div className="health-grid">
-            {health.map((post) => (
-              <SmallPost
-              key={post._id}
-              imgSource={post.imageOne}
-              category={post.category}
-              createdAt={moment(post.createdAt).fromNow()}
-              link={`/posts/${post.linkText}`}
-              linkText={post.title}
-              author={post.author.toUpperCase()}
-            />
-            ))}
+            {posts.length ? (
+              health.map((post) => (
+                <SmallPost
+                key={post._id}
+                imgSource={post.imageOne}
+                category={post.category}
+                createdAt={moment(post.createdAt).fromNow()}
+                link={`/posts/${post.linkText}`}
+                linkText={post.title}
+                author={post.author.toUpperCase()}
+              />
+              ))
+            ) : (<div>No Health Posts</div>)}
           </div>
         </section>
         <section className="politics">

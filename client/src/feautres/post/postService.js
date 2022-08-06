@@ -2,7 +2,7 @@ const axios = require("axios");
 
 const url = "http://localhost:2000";
 
-const getAllPosts = async () => {
+const getAllPosts = async (_) => {
   const response = await axios.get(`${url}/api/posts`);
   return response.data;
 };
