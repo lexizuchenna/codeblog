@@ -1,8 +1,9 @@
+import moment from "moment";
+import parse from "html-react-parser";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import moment from "moment";
-import parse from "html-react-parser";
+import {Helmet} from 'react-helmet'
 
 import { getSinglePost, getAllPosts, reset } from "../../feautres/post/postSlice";
 
@@ -58,6 +59,10 @@ function Post() {
 
   return (
     <>
+    <Helmet>
+      <title>{`CodeBlog | ${singlePost.title}`}</title>
+      <link rel="canonical" href="https://lexizcodeblog.herokuapp.com" />
+    </Helmet>
       <Navbar />
       {!singlePost ? (
         <div className="container">
