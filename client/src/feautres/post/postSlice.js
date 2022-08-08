@@ -35,12 +35,12 @@ export const postSlice = createSlice({
         .addCase(getAllPosts.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true
-            state.posts.push(action.payload)
+            state.posts = action.payload
         })
         .addCase(getAllPosts.rejected, (state, action) => {
             state.isLoading = false
             state.isSuccess = false
-            state.message = action.type
+            state.message = action.payload
         })
         .addCase(getPostByCategory.pending, (state) => {
             state.isLoading = true
@@ -48,12 +48,12 @@ export const postSlice = createSlice({
         .addCase(getPostByCategory.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true
-            state.posts.push(action.payload)
+            state.posts = action.payload
         })
         .addCase(getPostByCategory.rejected, (state, action) => {
             state.isLoading = false
             state.isSuccess = false
-            state.message = action.type
+            state.message = action.payload
         })
         .addCase(getSinglePost.pending, (state) => {
             state.isLoading = true
@@ -61,7 +61,7 @@ export const postSlice = createSlice({
         .addCase(getSinglePost.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true
-            state.post.push(action.payload)
+            state.post = action.payload
         })
         .addCase(getSinglePost.rejected, (state, action) => {
             state.isLoading = false

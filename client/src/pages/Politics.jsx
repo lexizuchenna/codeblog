@@ -1,29 +1,22 @@
-import {useEffect, useState} from "react";
-import  {useSelector, useDispatch} from 'react-redux'
-import moment from 'moment'
-import {getPostByCategory, reset} from '../feautres/post/postSlice'
+import moment from "moment";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
-
+import { getPostByCategory, reset } from "../feautres/post/postSlice";
 import SmallPost from "../components/Posts/SmallPost";
 import Navbar from "../components/Navbar";
 
 function Politics() {
-  const dispatch = useDispatch()
-  const {posts} = useSelector((state) => state.post)
-
-  const [Feed, setFeed] = useState([])
+  const dispatch = useDispatch();
+  const { posts } = useSelector((state) => state.post);
 
   useEffect(() => {
-   dispatch(getPostByCategory('Politics'))
-   posts.map((post) => {
-     return setFeed(post)
-   })
-   console.log(posts)
-   return () => {
-     reset() 
-   }
-  }, [dispatch, posts])
-  
+    dispatch(getPostByCategory("Politics"));
+    return () => {
+      reset();
+    };
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -31,17 +24,17 @@ function Politics() {
         <section className="health">
           <h3>Politics</h3>
           <div className="health-grid">
-            {Feed.map((post) => (
-              <SmallPost
-              key={post._id}
-              imgSource={post.imageOne}
-              category={post.category}
-              createdAt={moment(post.createdAt).fromNow()}
-              link={`posts/${post.linkText}`}
-              linkText={post.title
-              }
-              author={post.author.toUpperCase()}
-            />
+            {posts.map((post) => (
+             <SmallPost
+             key={post._id}
+             imgSource={post.imageOne}
+             category={post.category}
+             createdAt={moment(post.createdAt).fromNow()}
+             link={`/posts/${post.linkText}`}
+             linkText={post.title
+             }
+             author={post.author.toUpperCase()}
+           /> 
             ))}
           </div>
         </section>

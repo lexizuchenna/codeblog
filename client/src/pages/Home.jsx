@@ -1,120 +1,102 @@
-import {useEffect, useState} from "react";
-import  {useSelector, useDispatch} from 'react-redux'
 import moment from 'moment'
-import {getAllPosts, reset} from '../feautres/post/postSlice'
+import {useEffect} from "react";
+import  {useSelector, useDispatch} from 'react-redux'
+import {Helmet} from 'react-helmet'
 
+import {getAllPosts, reset} from '../feautres/post/postSlice'
 import Navbar from "../components/Navbar";
 import LargePost from "../components/Posts/LargePost";
 import SmallPost from "../components/Posts/SmallPost";
 import InlinePost from "../components/Posts/InlinePost";
 
+
 function Home() {
-  const [postFeed, setPostFeed] = useState([])
+
   const dispatch = useDispatch()
-  const {posts, isSuccess} = useSelector((state) => state.post)
+  const {posts} = useSelector((state) => state.post)
 
   useEffect(() => {
     dispatch(getAllPosts())
     return () => {
-      posts.map((post) => {
-        return setPostFeed(post)
-      })
       reset()
     }
   }, [])
 
-  console.log(posts)
-
-  const mainFeed = postFeed[0]
-  const imageFeed = postFeed.slice(2, 4)
-
- let business = postFeed.filter((post) => post.category === 'Business')
- let mainPolitics = postFeed.filter((post) => post.category === 'Politics')
- let politics = mainPolitics.slice(1, 4)
- let health = postFeed.filter((post) => post.category === 'Health')
-//  let science = postFeed.filter((post) => post.category === 'Science')
-  let largePol = mainPolitics.slice(4, 5)
   return (
     <>
+    <Helmet>
+        <title>{`CodeBlog | Home`}</title>
+        <link rel="canonical" href="https://lexizcodeblog.herokuapp.com" />
+      </Helmet>
       <Navbar />
       <div className="container">
         <div className="grid-container">
           <main className="main">
-            <LargePost
-              imgSource={mainFeed?.imageOne}
-              category={mainFeed?.category}
-              createdAt={"April, 2023"}
-              link={`/posts/${mainFeed?.linkText}`}
+            {posts ? (
+              <LargePost
+              imgSource={posts[0]?.imageOne}
+              category={posts[0]?.category}
+              createdAt={posts[0]?.createdAt}
+              link={`/posts/${posts[0]?.linkText}`}
               content={
-                mainFeed?.header
+                posts[0]?.header
               }
-              author={mainFeed?.author.toUpperCase()}
+              author={posts[0]?.author.toUpperCase()}
               linkText={
-                mainFeed?.title
+                posts[0]?.title
               }
             />
+            ) : (<div>Loading Posts...</div>)}
           </main>
           <aside className="aside">
             <div className="left-side">
-              {imageFeed.map((post) => (
-                <SmallPost
-                key={post._id}
-                imgSource={post.imageOne}
-                category={post.category}
-                createdAt={"Jan, 2019"}
-                link={`/posts/${post.linkText}`}
-                linkText={
-                  post.title
-                }
-                author={post.author}
-              />
-              ))}
+            {posts && posts.slice(1, 3).map((post) => (
+              <SmallPost
+              key={post._id}
+              imgSource={post.imageOne}
+              category={post.category}
+              createdAt={moment(post.createdAt).fromNow()}
+              link={`/posts/${post.linkText}`}
+              linkText={post.title}
+              author={post.author.toUpperCase()}
+            />
+            ))}
             </div>
             <div className="right-side">
               <h3>Business</h3> 
-              {isSuccess && business.map((post, i) => (
-                <InlinePost key={post._id} category={post.category}
-                createdAt={post.createdAt}
-                link={`posts/${post.linkText}`}
-                linkText={
-                  post.title
-                }/>
-              ))} 
+              {posts && posts.filter((x) => x.category === 'Business').slice(0, 6).map((post) => (
+                <InlinePost
+                  key={post._id}
+                  category={post.category}
+                  createdAt={post.createdAt}
+                  link={`posts/${post.linkText}`}
+                  linkText={post.title}
+                />
+              ))}
             </div>
-            {/* {isLoading && <div>Loading</div>}
-            {!isLoading && message ? <div>Error: {message}</div>: null}
-            {!isLoading && posts.length > 0 ? (
-              <ul>
-                {posts.map((post) => (
-                  <li key={post.id}>{post.name}</li>
-                ))}
-              </ul>
-            ): null} */}
           </aside>
         </div>
         <section className="health">
           <h3>Health</h3>
           <div className="health-grid">
-            {posts.length ? (
-              health.map((post) => (
-                <SmallPost
-                key={post._id}
-                imgSource={post.imageOne}
-                category={post.category}
-                createdAt={moment(post.createdAt).fromNow()}
-                link={`/posts/${post.linkText}`}
-                linkText={post.title}
-                author={post.author.toUpperCase()}
-              />
-              ))
-            ) : (<div>No Health Posts</div>)}
+          {posts && posts.filter((x) => x.category === 'Health').slice(0, 8).map((post) => (
+              <SmallPost
+              key={post._id}
+              imgSource={post.imageOne}
+              category={post.category}
+              createdAt={moment(post.createdAt).fromNow()}
+              link={`/posts/${post.linkText}`}
+              linkText={post.title}
+              author={post.author.toUpperCase()}
+            />
+            ))}
           </div>
         </section>
         <section className="politics">
           <h3>Politics</h3>
           <div className="politics-grid">
             <div className="left-pol">
-            {politics.map((post) => (
+            {posts && posts.filter((x) => x.category === 'Politics').slice(1, 5).map((post) => (
               <SmallPost
               key={post._id}
               imgSource={post.imageOne}
@@ -127,15 +109,20 @@ function Home() {
             ))}
             </div>
             <div className="right-pol">
-            {largePol.map((post) => (
+            {posts && posts.filter((x) => x.category === 'Politics').slice(0, 1).map((post) => (
               <LargePost
+              key={post._id}
               imgSource={post.imageOne}
               category={post.category}
-              createdAt={moment(post.createdAt).fromNow()}
+              createdAt={post.createdAt}
               link={`/posts/${post.linkText}`}
-              content={post.header}
-              author={post.author}
-              linkText={post.title}
+              content={
+                post.header
+              }
+              author={post.author.toUpperCase()}
+              linkText={
+                post.title
+              }
             />
             ))}
             </div> 

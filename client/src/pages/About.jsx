@@ -1,9 +1,14 @@
 import Navbar from "../components/Navbar";
 import { images } from "../assets/index";
+import { Helmet } from "react-helmet";
 
 function About() {
   return (
     <>
+      <Helmet>
+        <title>{`CodeBlog | About`}</title>
+        <link rel="canonical" href="https://lexizcodeblog.herokuapp.com" />
+      </Helmet>
       <Navbar />
       <div className="container post about">
         <div className="post-head">

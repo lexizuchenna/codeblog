@@ -1,10 +1,16 @@
-import Navbar from '../components/Navbar'
+import { Helmet } from "react-helmet";
+
+import Navbar from "../components/Navbar";
 import { images } from "../assets/index";
 
 function Contacts() {
   return (
     <>
-    <Navbar/>
+      <Helmet>
+        <title>{`CodeBlog | Contact`}</title>
+        <link rel="canonical" href="https://lexizcodeblog.herokuapp.com" />
+      </Helmet>
+      <Navbar />
       <div className="container">
         <div className="contact-flex">
           <div className="contact-details">
@@ -34,7 +40,7 @@ function Contacts() {
           <h2>Write to us</h2>
           <form action="">
             <div className="form-group">
-              <input type="text" placeholder="Enter your name" />
+              <input type="text" placeholder="Enter your name" name="" />
             </div>
             <div className="form-group">
               <input type="text" placeholder="Enter your email" />
