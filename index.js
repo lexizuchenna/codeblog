@@ -14,7 +14,7 @@ app.use(express.json({ extended: true, limit: "25mb" }));
 app.use('/api', require('./routes/api'))
 
 // Serve frontend
-if (process.env.MODE === 'DEVELOPMENT') {
+if (process.env.MODE === 'PRODUCTION') {
   app.use(express.static(path.join(__dirname, './client/build')));
 
   app.get('*', (req, res) =>

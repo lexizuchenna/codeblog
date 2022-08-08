@@ -36,7 +36,7 @@ function Home() {
               <LargePost
               imgSource={posts[0]?.imageOne}
               category={posts[0]?.category}
-              createdAt={posts[0]?.createdAt}
+              createdAt={moment(posts[0]?.createdAt).fromNow()}
               link={`/posts/${posts[0]?.linkText}`}
               content={
                 posts[0]?.header
@@ -114,7 +114,7 @@ function Home() {
               key={post._id}
               imgSource={post.imageOne}
               category={post.category}
-              createdAt={post.createdAt}
+              createdAt={moment(post.createdAt).fromNow()}
               link={`/posts/${post.linkText}`}
               content={
                 post.header
